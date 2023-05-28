@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { HiMenu } from "react-icons/hi";
 
 const Section = styled.div`
   display: flex;
   justify-content: center;
+
+  @media screen and (max-width: 748px) {
+    width: 100%;
+    position: relative;
+  }
+  @media screen and (max-width: 1243px) {
+    width: 80%;
+    padding: 10px 10px;
+  }
 `;
 
 const Container = styled.div`
@@ -12,6 +22,15 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 10px 0;
+
+  @media screen and (max-width: 748px) {
+    width: 100%;
+    padding: 10px 10px;
+  }
+  @media screen and (max-width: 1243px) {
+    width: 100%;
+    padding: 10px 10px;
+  }
 `;
 const Links = styled.div`
   display: flex;
@@ -32,8 +51,31 @@ const List = styled.ul`
   display: flex;
   align-items: center;
   gap: 30px;
+  transition: left 1s ease-in-out;
+
+  @media screen and (max-width: 748px) {
+    text-align: center;
+    overflow: hidden;
+    padding: 5px 10px;
+    width: 90%;
+    background-color: #2c2929b3;
+    position: absolute;
+    top: 75px;
+    left: -110%;
+    gap: 0px;
+    flex-direction: column;
+    border-radius: 15px;
+  }
 `;
-const ListItem = styled.li``;
+const ListItem = styled.li`
+  @media screen and (max-width: 748px) {
+    width: 100%;
+    padding: 30px 0;
+    &:not(:last-child) {
+      border-bottom: 1px solid rgb(255 255 255 / 26%);
+    }
+  }
+`;
 const Icon = styled.img`
   width: 20px;
   height: 20px;
@@ -48,12 +90,14 @@ const Button = styled.button`
 `;
 
 const Navbar = () => {
+  const [showList, setShowList] = useState(false);
+  const classtyle = "active";
   return (
     <Section>
       <Container>
         <Links>
           <Logo src="./img/logo (1).png" />
-          <List>
+          <List className={showList ? classtyle : ""}>
             <ListItem>Home</ListItem>
             <ListItem>Studio</ListItem>
             <ListItem>Works</ListItem>
@@ -61,7 +105,7 @@ const Navbar = () => {
           </List>
         </Links>
         <Icons>
-          <Icon src="./img/search (1).png" />
+          <HiMenu className="btn" onClick={() => setShowList(!showList)} />
           <Button>Hire Now</Button>
         </Icons>
       </Container>

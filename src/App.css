@@ -131,3 +131,13 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+.active {
+  left: 5% !important;
+}
+
+@media screen and (min-width: 748px) {
+  .btn {
+    display: none;
+  }
+}
