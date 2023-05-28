@@ -11,14 +11,32 @@ const Section = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+
+  @media screen and (max-width: 748px) {
+    height: 200vh;
+  }
+  @media screen and (max-width: 1243px) {
+    height: 200vh;
+  }
 `;
 
 const Container = styled.div`
-  height: 100vh;
+  height: 100%;
   scroll-snap-align: center;
   width: 1200px;
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 748px) {
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+  }
+  @media screen and (max-width: 1243px) {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const Left = styled.div`
@@ -27,11 +45,18 @@ const Left = styled.div`
   flex-direction: column;
   padding: 0 30px;
   flex: 2;
+
+  @media screen and (max-width: 748px) {
+    flex: 1;
+  }
 `;
 
 const Right = styled.div`
   flex: 3;
   position: relative;
+  @media screen and (max-width: 748px) {
+    flex: 1;
+  }
 `;
 const Title = styled.h1`
   font-size: 60px;
@@ -66,7 +91,7 @@ const Button = styled.button`
   cursor: pointer;
 `;
 const Img = styled.img`
-  width: 500px;
+  width: 600px;
   height: 400px;
   object-fit: contain;
   position: absolute;
@@ -76,6 +101,11 @@ const Img = styled.img`
   right: 0;
   margin: auto;
   animation: animate 2s infinite linear alternate;
+
+  @media screen and (max-width: 1243px) {
+    width: 400px;
+    height: 300px;
+  }
 
   @keyframes animate {
     to {
@@ -88,7 +118,7 @@ const Hero = () => {
   return (
     <Section>
       <Navbar />
-      {/* <Container>
+      <Container>
         <Left>
           <Title>Think. Make. Solve.</Title>
           <WhatWeDo>
@@ -106,7 +136,7 @@ const Hero = () => {
               <OrbitControls enableZoom={false} />
               <ambientLight intensity={1} />
               <directionalLight position={[3, 2, 1]} />
-              <Sphere args={[1, 100, 200]} scale={2.2}>
+              <Sphere args={[1, 100, 200]} scale={2.4}>
                 <MeshDistortMaterial
                   color="#3d1c56"
                   attach="material"
@@ -118,7 +148,7 @@ const Hero = () => {
           </Canvas>
           <Img src="./img/moon (1).png" />
         </Right>
-      </Container> */}
+      </Container>
     </Section>
   );
 };
