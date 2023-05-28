@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Map from "./Map";
+import ContactForm from "./ContactForm";
 
 const Section = styled.div`
   height: 100vh;
@@ -19,38 +20,7 @@ const Left = styled.div`
   align-items: center;
   justify-content: flex-end;
 `;
-const Title = styled.h1`
-  font-weight: 400;
-  color: lightgrey;
-`;
-const Input = styled.input`
-  width: 100%;
-  padding: 20px;
-  background-color: lightgray;
-  border: none;
-  border-radius: 5px;
-`;
-const Form = styled.form`
-  width: 500px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-`;
-const Textarea = styled.textarea`
-  width: 100%;
-  padding: 20px;
-  background-color: lightgray;
-  border: none;
-  border-radius: 5px;
-`;
-const Button = styled.button`
-  width: 100%;
-  padding: 10px;
-  background-color: #da4ea2;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-`;
+
 const Right = styled.div`
   flex: 1;
 `;
@@ -59,13 +29,7 @@ const Contact = () => {
     <Section>
       <Container>
         <Left>
-          <Form>
-            <Title>Contact Us</Title>
-            <Input placeholder="Name"></Input>
-            <Input placeholder="Email"></Input>
-            <Textarea placeholder="write yuor message ..." rows={10}></Textarea>
-            <Button>Send</Button>
-          </Form>
+          <ContactForm />
         </Left>
         <Right>
           <Map />
